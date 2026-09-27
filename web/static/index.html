@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pion SFU</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Pion SFU</h1>
+    <span id="status" class="status">Not connected</span>
+  </header>
+
+  <form id="join-form" class="panel">
+    <label>Room <input id="room" required pattern="[A-Za-z0-9_\-]{1,64}" value="demo"></label>
+    <label>Name <input id="name" maxlength="64" placeholder="Your name"></label>
+    <label>Role
+      <select id="role">
+        <option value="presenter">Presenter (camera + mic)</option>
+        <option value="viewer">Viewer (watch only)</option>
+      </select>
+    </label>
+    <button type="submit" id="join-btn">Join</button>
+  </form>
+
+  <div id="controls" class="panel hidden">
+    <span id="room-info"></span>
+    <span class="spacer"></span>
+    <button id="mic-btn" class="presenter-only">Mute mic</button>
+    <button id="cam-btn" class="presenter-only">Stop camera</button>
+    <button id="leave-btn" class="danger">Leave</button>
+  </div>
+
+  <main id="grid"></main>
+  <p id="empty" class="empty hidden">No presenters in this room yet.</p>
+
+  <script src="app.js"></script>
+</body>
+</html>
